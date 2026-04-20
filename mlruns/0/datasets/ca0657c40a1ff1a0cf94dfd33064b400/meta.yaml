@@ -1,0 +1,25 @@
+digest: 38928d5e
+name: dataset
+profile: '{"num_rows": 299, "num_elements": 6877}'
+schema: '{"mlflow_colspec": [{"type": "double", "name": "num__Age", "required": true},
+  {"type": "double", "name": "num__Sleep Duration", "required": true}, {"type": "double",
+  "name": "num__Quality of Sleep", "required": true}, {"type": "double", "name": "num__Physical
+  Activity Level", "required": true}, {"type": "double", "name": "num__Stress Level",
+  "required": true}, {"type": "double", "name": "num__Heart Rate", "required": true},
+  {"type": "double", "name": "num__Daily Steps", "required": true}, {"type": "double",
+  "name": "num__Systolic", "required": true}, {"type": "double", "name": "num__Diastolic",
+  "required": true}, {"type": "double", "name": "ord__BMI Category", "required": true},
+  {"type": "double", "name": "cat__Gender_Female", "required": true}, {"type": "double",
+  "name": "cat__Gender_Male", "required": true}, {"type": "double", "name": "cat__Occupation_Accountant",
+  "required": true}, {"type": "double", "name": "cat__Occupation_Doctor", "required":
+  true}, {"type": "double", "name": "cat__Occupation_Engineer", "required": true},
+  {"type": "double", "name": "cat__Occupation_Lawyer", "required": true}, {"type":
+  "double", "name": "cat__Occupation_Manager", "required": true}, {"type": "double",
+  "name": "cat__Occupation_Nurse", "required": true}, {"type": "double", "name": "cat__Occupation_Sales
+  Representative", "required": true}, {"type": "double", "name": "cat__Occupation_Salesperson",
+  "required": true}, {"type": "double", "name": "cat__Occupation_Scientist", "required":
+  true}, {"type": "double", "name": "cat__Occupation_Software Engineer", "required":
+  true}, {"type": "double", "name": "cat__Occupation_Teacher", "required": true}]}'
+source: '{"tags": {"mlflow.user": "runner", "mlflow.source.name": "modelling.py",
+  "mlflow.source.type": "LOCAL", "mlflow.source.git.commit": "20919b1cecfc4213bf726812833254998aa546ee"}}'
+source_type: code

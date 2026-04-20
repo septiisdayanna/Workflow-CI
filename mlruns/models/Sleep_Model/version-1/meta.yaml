@@ -1,0 +1,16 @@
+creation_timestamp: 1776710174347
+current_stage: None
+deployment_job_state: null
+description: null
+last_updated_timestamp: 1776710174347
+model_id: m-e3952962cc0345d29bd1d1cd724f87a2
+name: Sleep_Model
+run_id: 6fddb6732f4549a48269e154ad000213
+run_link: null
+source: models:/m-e3952962cc0345d29bd1d1cd724f87a2
+status: READY
+status_message: null
+storage_location: file:///home/runner/work/Workflow-CI/Workflow-CI/mlruns/0/models/m-e3952962cc0345d29bd1d1cd724f87a2/artifacts
+user_id: null
+version: 1
+workspace: default

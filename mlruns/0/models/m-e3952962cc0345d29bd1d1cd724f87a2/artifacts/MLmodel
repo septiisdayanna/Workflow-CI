@@ -1,0 +1,53 @@
+artifact_path: file:///home/runner/work/Workflow-CI/Workflow-CI/mlruns/0/models/m-e3952962cc0345d29bd1d1cd724f87a2/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.12.7
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.8.0
+    skops_trusted_types: null
+is_signature_from_type_hint: false
+mlflow_version: 3.11.1
+model_id: m-e3952962cc0345d29bd1d1cd724f87a2
+model_size_bytes: 4383350
+model_uuid: m-e3952962cc0345d29bd1d1cd724f87a2
+prompts: null
+run_id: 6fddb6732f4549a48269e154ad000213
+saved_input_example_info:
+  artifact_path: input_example.json
+  pandas_orient: split
+  serving_input_path: serving_input_example.json
+  type: dataframe
+signature:
+  inputs: '[{"type": "double", "name": "num__Age", "required": true}, {"type": "double",
+    "name": "num__Sleep Duration", "required": true}, {"type": "double", "name": "num__Quality
+    of Sleep", "required": true}, {"type": "double", "name": "num__Physical Activity
+    Level", "required": true}, {"type": "double", "name": "num__Stress Level", "required":
+    true}, {"type": "double", "name": "num__Heart Rate", "required": true}, {"type":
+    "double", "name": "num__Daily Steps", "required": true}, {"type": "double", "name":
+    "num__Systolic", "required": true}, {"type": "double", "name": "num__Diastolic",
+    "required": true}, {"type": "double", "name": "ord__BMI Category", "required":
+    true}, {"type": "double", "name": "cat__Gender_Female", "required": true}, {"type":
+    "double", "name": "cat__Gender_Male", "required": true}, {"type": "double", "name":
+    "cat__Occupation_Accountant", "required": true}, {"type": "double", "name": "cat__Occupation_Doctor",
+    "required": true}, {"type": "double", "name": "cat__Occupation_Engineer", "required":
+    true}, {"type": "double", "name": "cat__Occupation_Lawyer", "required": true},
+    {"type": "double", "name": "cat__Occupation_Manager", "required": true}, {"type":
+    "double", "name": "cat__Occupation_Nurse", "required": true}, {"type": "double",
+    "name": "cat__Occupation_Sales Representative", "required": true}, {"type": "double",
+    "name": "cat__Occupation_Salesperson", "required": true}, {"type": "double", "name":
+    "cat__Occupation_Scientist", "required": true}, {"type": "double", "name": "cat__Occupation_Software
+    Engineer", "required": true}, {"type": "double", "name": "cat__Occupation_Teacher",
+    "required": true}]'
+  outputs: '[{"type": "string", "required": true}]'
+  params: null
+type_hint_from_example: false
+utc_time_created: '2026-04-20 18:36:11.118940'
