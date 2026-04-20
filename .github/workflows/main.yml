@@ -40,8 +40,8 @@ jobs:
       # Run as a mlflow project
       - name: Run mlflow project
         run: |
-	  export MLFLOW_TRACKING_URI="file://$GITHUB_WORKSPACE/mlruns"
-          export MLFLOW_REGISTRY_URI="file://$GITHUB_WORKSPACE/mlruns"
+          export MLFLOW_TRACKING_URI="file://$GITHUB_WORKSPACE/mlruns"
+          export MLFLOW_REGISTRY_URI="file://$GITHUB_WORKSPACE/mlruns" 
           mlflow run MLproject --env-manager=local 
 
       # Save models to GitHub Repository
