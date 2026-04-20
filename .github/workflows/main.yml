@@ -1,0 +1,78 @@
+name: Sleep_Disorder_CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+env:
+  CSV_URL: "MLproject/Sleep_health_and_lifestyle_dataset_preprocessing/X_test_clean.csv, MLproject/Sleep_health_and_lifestyle_dataset_preprocessing/X_train_clean.csv, MLproject/Sleep_health_and_lifestyle_dataset_preprocessing/y_test.csv, MLproject/Sleep_health_and_lifestyle_dataset_preprocessing/y_train.csv"
+  TARGET_VAR: "Sleep Disorder"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks-out repository under $GITHUB_WORKSPACE
+      - uses: actions/checkout@v4
+
+      # Setup Python 3.12.7
+      - name: Set up Python 3.12.7
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.12.7"
+      
+      # Check Env Variables
+      - name: Check Env
+        run: |
+          echo $CSV_URL
+          
+      # Install mlflow
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install mlflow pandas scikit-learn numpy  
+          
+      # Run as a mlflow project
+      - name: Run mlflow project
+        run: |
+	  export MLFLOW_TRACKING_URI="file://$GITHUB_WORKSPACE/mlruns"
+          export MLFLOW_REGISTRY_URI="file://$GITHUB_WORKSPACE/mlruns"
+          mlflow run MLproject --env-manager=local 
+
+      # Save models to GitHub Repository
+      - name: Save mlruns to repo
+        run: |
+          git config --global user.name ${{ secrets.username }}
+          git config --global user.email ${{ secrets.email }}
+          git add -f mlruns/
+          # Tambahkan || echo "No changes to commit" agar action tidak gagal jika tidak ada perubahan
+          git commit -m "Save mlruns from CI run" || echo "No changes to commit"
+          git pull --rebase origin main
+          git push origin main
+          
+      # Build Docker Model
+      - name: Build Docker Model
+        run: |
+          mlflow models build-docker -m "models:/Sleep_Model/1" -n "sleep"
+
+      # Login to Docker Hub
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      # Tag the Docker image
+      - name: Tag Docker Image
+        run: |
+          docker tag sleep ${{ secrets.DOCKER_USERNAME }}/sleep:latest
+
+      # Push Docker image to Docker Hub
+      - name: Push Docker Image
+        run: |
+          docker push ${{ secrets.DOCKER_USERNAME }}/sleep:latest
